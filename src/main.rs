@@ -24,7 +24,16 @@ fn soma(y: i32, x: i32) -> i32 {
     return y + x;
 }
 
+fn maiorDeIdade(idade: i32) {
+    if idade >= 18 {
+        println!("maior de idade");
+    } else {
+        println!("menor de idade");
+    }
+}
+
 fn main() {
     escopo();
     println!("soma: {}", soma(10, 20)); // ; discarta o resultado e uma função
+    maiorDeIdade(18);
 }
