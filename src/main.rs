@@ -1,6 +1,13 @@
 const PI:f32 = 3.1415;           // constante de tipo f32 escopo global
 static mut GLOBAL: i32 = 10;     // variável de tipo i32 escopo global pode ser mutavel porem é thread safe
 
+fn main() {
+    escopo();
+    println!("soma: {}", soma(10, 20)); // ; discarta o resultado e uma função
+    maiorDeIdade(18);
+    repeticoes()
+}
+
 fn escopo(){
     let inteiro:i32 = 128;       // inteiro de 32 bytes
     let decimal:f32 = 0.5;       // float de 32 bytes
@@ -32,8 +39,20 @@ fn maiorDeIdade(idade: i32) {
     }
 }
 
-fn main() {
-    escopo();
-    println!("soma: {}", soma(10, 20)); // ; discarta o resultado e uma função
-    maiorDeIdade(18);
+fn repeticoes(){
+    let mutiplicador:u8 = 5;
+    let mut contador:u8 = 0;
+    while contador < 10 {
+        contador += 1;
+        println!("{} x {} = {}", mutiplicador, contador, mutiplicador * contador);
+    }
+
+    contador = 0;
+    loop {
+        contador += 1;
+        println!("{}", contador);
+        if contador == 10 {
+            break;
+        }
+    }
 }
