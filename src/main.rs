@@ -5,7 +5,9 @@ fn main() {
     escopo();
     println!("soma: {}", soma(10, 20)); // ; discarta o resultado e uma função
     maiorDeIdade(18);
-    repeticoes()
+    repeticoes();
+    forExemplo();
+    ownership();
 }
 
 fn escopo(){
@@ -46,7 +48,6 @@ fn repeticoes(){
         contador += 1;
         println!("{} x {} = {}", mutiplicador, contador, mutiplicador * contador);
     }
-
     contador = 0;
     loop {
         contador += 1;
@@ -55,4 +56,21 @@ fn repeticoes(){
             break;
         }
     }
+}
+
+fn forExemplo(){
+    for x in 1..=10 {
+        println!("{}", x);
+    }
+}
+
+fn ownership(){
+    let mut s1 = String::from("hello");     // aloca na heap uma var mutavel
+    empresta(&mut s1);                      // passa como paramentro uma referencia de memoria mutavel
+    println!("{}, world!", s1);       
+}
+
+fn empresta(s1: &mut String) {          // recebe uma refencia mutavel
+    s1.push_str(" Mudou");
+    println!("{}", s1);
 }
